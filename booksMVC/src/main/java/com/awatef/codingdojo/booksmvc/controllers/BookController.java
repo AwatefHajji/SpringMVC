@@ -1,5 +1,7 @@
 package com.awatef.codingdojo.booksmvc.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,5 +26,11 @@ public class BookController {
 		model.addAttribute("book",book);
 		return "show.jsp";
 	}
-
+    //=== display route to show all books
+	@GetMapping("/books")
+	public String books(Model model) {
+		ArrayList<BookModel> allBooks = (ArrayList<BookModel>) bookService.allBooks();
+		model.addAttribute("allBooks", allBooks);
+		return "index.jsp";
+	}
 }
