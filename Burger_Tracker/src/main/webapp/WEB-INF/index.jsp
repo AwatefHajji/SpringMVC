@@ -32,7 +32,15 @@
 						<td><a href="/burgers/${burger.id}"><c:out value="${burger.name}" /></a></td>
 						<td><c:out value="${burger.restaurant}" /></td>
 						<td><c:out value="${burger.rate}" /></td>
-						<td><a href="/burgers/edit/${burger.id}"><button class="btn btn-success">Edit</button></a> <a href="/burgers/delete/${burger.id}"><button class="btn btn-danger">Delete</button></a></td>
+						<td>
+						
+						<a href="/burgers/edit/${burger.id}"><button class="btn btn-success">Edit</button></a> 
+						<form action="/burgers/delete/${burger.id}" method="post">
+    					<input type="hidden" name="_method" value="delete">
+    					<input type="submit" value="Delete" class="btn btn-danger">
+						</form>
+						
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
